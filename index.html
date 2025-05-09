@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Game Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mini Game Hub</h1>
+      <p class="subtitle">Choose a game to play</p>
+    </header>
+    
+    <main class="game-grid">
+      <div class="game-card" data-game="tic-tac-toe">
+        <div class="game-preview tic-tac-toe-preview">
+          <div class="preview-content">
+            <div class="tic-cell">X</div>
+            <div class="tic-cell">O</div>
+            <div class="tic-cell">X</div>
+            <div class="tic-cell">O</div>
+            <div class="tic-cell">X</div>
+          </div>
+        </div>
+        <div class="game-info">
+          <h2>Tic Tac Toe</h2>
+          <p>Classic game of X's and O's</p>
+          <button class="play-btn" data-game="tic-tac-toe">Play Now</button>
+        </div>
+      </div>
+
+      <div class="game-card" data-game="memory">
+        <div class="game-preview memory-preview">
+          <div class="preview-content">
+            <div class="memory-card"></div>
+            <div class="memory-card"></div>
+            <div class="memory-card"></div>
+            <div class="memory-card"></div>
+          </div>
+        </div>
+        <div class="game-info">
+          <h2>Memory Game</h2>
+          <p>Match pairs of cards to win</p>
+          <button class="play-btn" data-game="memory">Play Now</button>
+        </div>
+      </div>
+
+      <div class="game-card" data-game="rock-paper-scissors">
+        <div class="game-preview rps-preview">
+          <div class="preview-content">
+            <span class="rps-icon">✊</span>
+            <span class="rps-icon">✋</span>
+            <span class="rps-icon">✌️</span>
+          </div>
+        </div>
+        <div class="game-info">
+          <h2>Rock Paper Scissors</h2>
+          <p>Test your luck against the computer</p>
+          <button class="play-btn" data-game="rock-paper-scissors">Play Now</button>
+        </div>
+      </div>
+    </main>
+
+    <div id="game-container" class="hidden">
+      <button id="back-btn">Back to Games</button>
+      <div id="active-game"></div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2025 Mini Game Hub - Created with ❤️</p>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

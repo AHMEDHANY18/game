@@ -1,0 +1,345 @@
+.rps-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rps-game h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-rps);
+  font-weight: 700;
+}
+
+.game-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-2);
+  margin-bottom: var(--space-3);
+  background-color: #f8f9fa;
+  border-radius: 12px;
+}
+
+.player-score, .computer-score, .rounds {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-1);
+}
+
+.score-label, .rounds-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-gray);
+  margin-bottom: 4px;
+}
+
+.score-value, .rounds-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.player-score .score-value {
+  color: var(--color-primary);
+}
+
+.computer-score .score-value {
+  color: var(--color-accent-dark);
+}
+
+.rounds-value {
+  color: var(--color-dark-gray);
+}
+
+.game-result {
+  width: 100%;
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.result-message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  min-height: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.result-message.win {
+  color: var(--color-success);
+}
+
+.result-message.lose {
+  color: var(--color-error);
+}
+
+.result-message.tie {
+  color: var(--color-warning);
+}
+
+.vs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.vs-container.animate .player-choice {
+  animation: pulseLeft 0.7s ease;
+}
+
+.vs-container.animate .computer-choice {
+  animation: pulseRight 0.7s ease;
+}
+
+.choice {
+  width: 80px;
+  height: 80px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.player-choice[data-choice="rock"],
+.computer-choice[data-choice="rock"] {
+  background-color: #ede9fe;
+}
+
+.player-choice[data-choice="paper"],
+.computer-choice[data-choice="paper"] {
+  background-color: #e0f2fe;
+}
+
+.player-choice[data-choice="scissors"],
+.computer-choice[data-choice="scissors"] {
+  background-color: #ffedd5;
+}
+
+.vs {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-dark-gray);
+}
+
+.game-options {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.option-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn[data-choice="rock"] {
+  background-color: #ede9fe;
+}
+
+.option-btn[data-choice="paper"] {
+  background-color: #e0f2fe;
+}
+
+.option-btn[data-choice="scissors"] {
+  background-color: #ffedd5;
+}
+
+.option-btn.selected {
+  transform: scale(1.1);
+}
+
+.option-btn.winner {
+  box-shadow: 0 0 0 3px var(--color-success), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn.loser {
+  box-shadow: 0 0 0 3px var(--color-error), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn.tie {
+  box-shadow: 0 0 0 3px var(--color-warning), 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.game-history {
+  width: 100%;
+  margin-bottom: var(--space-3);
+}
+
+.game-history h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-dark-gray);
+  text-align: center;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  animation: slideIn 0.3s ease;
+}
+
+.history-item.player {
+  border-left: 4px solid var(--color-success);
+}
+
+.history-item.computer {
+  border-left: 4px solid var(--color-error);
+}
+
+.history-item.tie {
+  border-left: 4px solid var(--color-warning);
+}
+
+.history-round {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-dark-gray);
+}
+
+.history-choices {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.history-player-choice, .history-computer-choice {
+  font-size: 1.2rem;
+}
+
+.history-vs {
+  font-size: 0.7rem;
+  color: var(--color-gray);
+}
+
+.history-result {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.history-item.player .history-result {
+  color: var(--color-success);
+}
+
+.history-item.computer .history-result {
+  color: var(--color-error);
+}
+
+.history-item.tie .history-result {
+  color: var(--color-warning);
+}
+
+.reset-button {
+  padding: 8px 24px;
+  background-color: var(--color-rps);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.reset-button:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.reset-button:active {
+  transform: scale(0.98);
+}
+
+/* Animations */
+@keyframes pulseLeft {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  30% {
+    transform: scale(1.1) translateX(-10px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes pulseRight {
+  0% {
+    transform: scale(1) translateX(0);
+  }
+  30% {
+    transform: scale(1.1) translateX(10px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 500px) {
+  .game-options {
+    gap: var(--space-2);
+  }
+  
+  .option-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+  
+  .choice {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  .history-item {
+    padding: 8px 12px;
+  }
+}
